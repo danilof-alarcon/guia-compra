@@ -4,7 +4,10 @@ const base = new Airtable({apiKey: import.meta.env.VITE_API_KEY}).base(import.me
 
 async function getCameras() {
     try {
-        const records = await base('Camaras').select({maxRecords: 5}).all();
+        const records = await base('Camaras').select({
+            maxRecords: 100,
+            sort: [{field: "Presupuesto", direction: "asc"}],
+        }).all();
         const data = records.map(record => record);
         return data
     } catch (error) {
