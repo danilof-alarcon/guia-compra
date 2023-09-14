@@ -129,7 +129,7 @@ function App() {
             {activeQuestion === 0 &&
                 <Fade in={activeQuestion === 0}>
                     <div className="results">
-                        <h2>Results</h2>
+                        <h2>Resultados</h2>
                             {brandOptions.length > 1 && (
                                 <div className='brand-filter'>
                                     <h3>Filtrar por marca:</h3>
