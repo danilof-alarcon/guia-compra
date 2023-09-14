@@ -6,7 +6,7 @@ async function getCameras() {
     try {
         const records = await base('Camaras').select({
             maxRecords: 100,
-            sort: [{field: "Presupuesto", direction: "asc"}],
+            sort: [{field: "Presupuesto", direction: "asc"}, {field: "Objetivo", direction: "asc"}],
         }).all();
         const data = records.map(record => record);
         return data

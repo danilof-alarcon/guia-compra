@@ -74,7 +74,7 @@ function App() {
                         )
                     })}
                     <button onClick={() => handleNextQuestion()} disabled={!isOptionSelected}>
-                    Next
+                    Siguiente
                     </button>
                 </div>
             </Fade>
@@ -105,22 +105,22 @@ function App() {
 
     return (
         <div>
-            <h1>Camera Finder</h1>
+            <h1>Guía de Compra</h1>
 
             {activeQuestion === 1 && (
-                generateQuestionField('What is your budget?', 1, 'budget', budgetOptions, setBudgetFilter)
+                generateQuestionField('¿Cuál es tu presupuesto?', 1, 'budget', budgetOptions, setBudgetFilter)
             )}
 
             {activeQuestion === 2 && (
-                generateQuestionField('What is your main goal?', 2, 'goal', goalOptions, setGoalFilter)
+                generateQuestionField('¿Cuál e tu objetivo principal?', 2, 'goal', goalOptions, setGoalFilter)
             )}
 
             {activeQuestion === 3 && ( interestOptions.length === 1 ? handleFinish() :
-                generateQuestionField('What is your main interest?', 3, 'interest', interestOptions, setInterestFilter)
+                generateQuestionField('¿Que finalidad quieres darle?', 3, 'interest', interestOptions, setInterestFilter)
             )}
 
             {activeQuestion === 4 && ( weightOptions.length === 1 ? handleFinish() :
-                generateQuestionField('Do you mind about weight?', 4, 'weight', weightOptions, setWeightFilter)
+                generateQuestionField('¿Te importa el peso?', 4, 'weight', weightOptions, setWeightFilter)
             )}
 
             {activeQuestion >= 5 && handleFinish()}
@@ -132,7 +132,7 @@ function App() {
                         <h2>Results</h2>
                             {brandOptions.length > 1 && (
                                 <div className='brand-filter'>
-                                    <h3>Filter by Brand</h3>
+                                    <h3>Filtrar por marca:</h3>
                                     {brandOptions.map((brand) => {
                                         return (
                                             <div key={brand}>
@@ -141,7 +141,7 @@ function App() {
                                             </div>
                                         )
                                     })}
-                                    <button onClick={() => setBrandFilter('')}>Reset</button>
+                                    <button onClick={() => setBrandFilter('')}>Resetear Filtro</button>
                                 </div>
                             )}
                         
