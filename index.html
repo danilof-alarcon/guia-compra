@@ -10,5 +10,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener("load", function() {
+        var contentHeight = document.body.scrollHeight;
+        window.parent.postMessage({ type: "setIframeHeight", height: contentHeight }, "*");
+      });
+  </script>
   </body>
 </html>
