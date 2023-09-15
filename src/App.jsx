@@ -102,7 +102,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <Box sx={{ backgroundColor: "#EEFFF6" }}>
                 <Container fixed>
-                    <Grid container direction="column" justifyContent="center" alignItems="center" paddingY={5} minHeight="100vh">
+                    <Grid container direction="column" justifyContent="center" alignItems="center" paddingY={5} minHeight="auto">
                         {isLoaded ? (
                         <Stack spacing={3} justifyContent="center" alignItems="center">
                             <Typography variant='h1' fontFamily={"Lokanova"} color="primary" textAlign={"center"} fontSize={{ md: 96, xs: 64 }}>Guía de Compra</Typography>
