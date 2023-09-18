@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import getCameras from './lib/airtable';
 import { Box, Button, Card, CardMedia, CircularProgress, Container, Fade, FormControl, FormControlLabel, FormLabel, Grid, Paper, Radio, RadioGroup, Skeleton, Stack, Typography } from '@mui/material';
 import './App.css'
@@ -16,6 +16,26 @@ function App() {
     const [interestFilter, setInterestFilter] = useState('');
     const [weightFilter, setWeightFilter] = useState('');
     const [isOptionSelected, setIsOptionSelected] = useState(false);
+
+    const containerRef = useRef(null);
+
+    const handleContainerResize = (entries) => {
+        for (const entry of entries) {
+            window.parent.postMessage({ height: entry.contentRect.height + 'px' }, '*');
+        }
+    };
+
+    useEffect(() => {
+        const container = containerRef.current;
+
+        if (container) {
+            const resizeObserver = new ResizeObserver(handleContainerResize);
+            resizeObserver.observe(container);
+            return () => {
+                resizeObserver.unobserve(container);
+            };
+        }
+    }, []);
 
     const budgetOptions = cameras.map((camera) => {
         return camera.fields.Presupuesto;
@@ -101,7 +121,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Box sx={{ backgroundColor: "#EEFFF6" }}>
-                <Container fixed>
+                <Container ref={containerRef} fixed>
                     <Grid container direction="column" justifyContent="center" alignItems="center" paddingY={5} minHeight="auto">
                         {isLoaded ? (
                         <Stack spacing={3} justifyContent="center" alignItems="center">
