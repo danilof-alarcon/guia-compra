@@ -6,8 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    cors: {
-      origin: ["https://www.dafe.com.ec/"],
-    },
+    cors: true,
   }
 })
