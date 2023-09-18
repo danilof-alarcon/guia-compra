@@ -10,5 +10,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        var height = document.querySelector('body').scrollHeight;
+        window.parent.postMessage({
+          type: 'height',
+          height: height
+        }, '*');
+      })();
+    </script>
   </body>
 </html>
