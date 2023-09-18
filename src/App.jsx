@@ -88,6 +88,8 @@ function App() {
     }
 
     useEffect(() => {
+        iFrameResize({ log: true }, window.parent);
+        
         getCameras()
         .then((response) => {
             setCameras(response);
