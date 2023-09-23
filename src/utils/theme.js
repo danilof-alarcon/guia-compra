@@ -8,7 +8,11 @@ const theme = createTheme({
         },
         secondary: {
             main: '#525252',
-        }
+        },
+        tertiary: {
+            main: '#E84826',
+            contrastText: '#FFFFFF',
+        },
     },
     typography: {
         fontFamily: ['Montserrat', "sans-serif"].join(","),

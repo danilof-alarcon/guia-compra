@@ -4,7 +4,13 @@
 }
 
 @font-face {
-  font-family: "Lokanova";
-  src: url("./assets/Lokanova-Rounded.otf");
+  font-family: "Gilroy";
+  src: url("./assets/Gilroy-ExtraBold.otf");
+  font-weight: 800;
 }
 
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/Gilroy-Light.otf");
+  font-weight: 200;
+}

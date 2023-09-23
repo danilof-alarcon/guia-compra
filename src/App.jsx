@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import getCameras from './lib/airtable';
-import { Box, Button, Card, CardMedia, CircularProgress, Container, Fade, FormControl, FormControlLabel, FormLabel, Grid, Paper, Radio, RadioGroup, Skeleton, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardMedia, CircularProgress, Container, FormControl, FormControlLabel, Grid, Paper, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import './App.css'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './utils/theme';
@@ -101,7 +101,7 @@ function App() {
                                 })
                             }
                         </RadioGroup>
-                        <Button variant="contained" color="primary" sx={styles.components.button} onClick={() => handleNextQuestion()} disabled={!isOptionSelected}>Siguiente</Button>
+                        <Button variant="contained" color="tertiary" sx={styles.components.button} onClick={() => handleNextQuestion()} disabled={!isOptionSelected}>Siguiente</Button>
                     </FormControl>
                 </>                
         )
@@ -120,13 +120,19 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{ backgroundColor: "#EEFFF6" }}>
+            <Box sx={{ backgroundColor: "#FFF0E1" }}>
                 <Container ref={containerRef} fixed>
                     <Grid container direction="column" justifyContent="center" alignItems="center" paddingY={5} minHeight="auto">
                         {isLoaded ? (
                         <Stack spacing={3} justifyContent="center" alignItems="center">
-                            <Typography variant='h1' fontFamily={"Lokanova"} color="primary" textAlign={"center"} fontSize={{ md: 96, xs: 64 }}>Guía de Compra</Typography>
-                            <Typography variant='body1' color="secondary" textAlign={"center"} maxWidth={320} fontSize={{ md: 18, xs: 16 }}>Descubre mi recomendación personal en la compra de cámaras</Typography>
+                            <Typography variant='h1' fontFamily={"Gilroy"} fontWeight={800} textAlign={"center"} fontSize={{ md: 64, xs: 48 }} sx={{
+                                textShadow: "2px 2px 0px #2C2C2C",
+                                color: "#FFFFFF",
+                                WebkitTextStrokeWidth: "1px",
+                                WebkitTextFillColor: "#FFF",
+                                WebkitTextStrokeColor: "#2C2C2C",
+                            }}>Guía de Compra</Typography>
+                            <Typography variant='body1' fontFamily={"Gilroy"} fontWeight={200} color="secondary" textAlign={"center"} maxWidth={320} fontSize={{ md: 18, xs: 16 }}>Recomendación personalizada para tu futura cámara</Typography>
                             <Paper elevation={0} sx={{ 
                                 width: { 
                                     md: 500, xs: 320
@@ -150,7 +156,7 @@ function App() {
                                 )}
 
                                 {activeQuestion === 4 && ( weightOptions.length === 1 ? handleFinish() :
-                                    generateQuestion('¿Cuál es tu peso ideal?', weightOptions, setWeightFilter)
+                                    generateQuestion('¿Te importa mucho el peso de tus equipos?', weightOptions, setWeightFilter)
                                 )}
 
                                 {activeQuestion >= 5 && handleFinish()}
@@ -179,13 +185,13 @@ function App() {
                                             </Card>
                                         )
                                     })}
-                                    <Button variant="contained" color="primary" sx={styles.components.button} onClick={() => window.location.reload(false)}>Comenzar de nuevo</Button>
+                                    <Button variant="contained" color="tertiary" sx={styles.components.button} onClick={() => window.location.reload(false)}>Comenzar de nuevo</Button>
                                     </>
                                 )}
 
                                 </Stack>
                             </Paper>
-                            <Typography variant='body2' color="#9F9F9F" textAlign={"center"} maxWidth={400} fontSize={{ md: 14, xs: 12 }} paddingTop={3}>Hecho por Nicolas Vildósola <br /> Desarrollado por Danilo Alarcón</Typography>
+                            <Typography variant='body2' fontFamily={"Gilroy"} fontWeight={200} color="#9F9F9F" textAlign={"center"} maxWidth={400} fontSize={{ md: 14, xs: 12 }} paddingTop={3}>Hecho por Nicolás Vildósola <br /> Desarrollado por Danilo Alarcón</Typography>
                         </Stack>
                         ) : <CircularProgress />}
                     </Grid>
